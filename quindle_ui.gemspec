@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ui/version'
+require 'quindle_ui/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ui"
-  spec.version       = UI::VERSION
+  spec.name          = "quindle_ui"
+  spec.version       = Quindle::VERSION
   spec.authors       = ["aoitaku"]
   spec.email         = ["aoitaku@gmail.com"]
   spec.summary       = %q{UI framework for game}

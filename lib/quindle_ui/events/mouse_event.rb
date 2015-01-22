@@ -1,6 +1,6 @@
-class MouseEvent
+class Quindle::MouseEvent
 
-  include UI::Event
+  include Quindle::UI::Event
 
   def mouse_out(target, current_target, *args)
     if current_target == target
@@ -60,9 +60,9 @@ class MouseEvent
 
 end
 
-module MouseEventHandler
+module Quindle::MouseEventHandler
 
-  include UI::EventHandler
+  include Quindle::UI::EventHandler
 
   event_handler :mouse_over, :mouse_move, :mouse_out
   event_handler :mouse_enter, :mouse_leave

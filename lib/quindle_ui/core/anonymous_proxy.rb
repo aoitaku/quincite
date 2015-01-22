@@ -1,4 +1,4 @@
-module AnonymousProxy
+module Quindle::AnonymousProxy
 
   def anon_proxy(name, sup=BasicObject, &proc)
     instance_variable_set(:"@#{name}", Class.new(sup, &proc).new)
