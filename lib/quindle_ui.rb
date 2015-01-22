@@ -1,2 +1,2 @@
-require_relative 'ui/core.rb'
-require_relative 'ui/events.rb'
+require_relative 'quindle_ui/core.rb'
+require_relative 'quindle_ui/events.rb'
