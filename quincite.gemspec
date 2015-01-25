@@ -4,8 +4,8 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'quindle_ui/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "quindle_ui"
-  spec.version       = Quindle::VERSION
+  spec.name          = "quincite"
+  spec.version       = Quincite::VERSION
   spec.authors       = ["aoitaku"]
   spec.email         = ["aoitaku@gmail.com"]
   spec.summary       = %q{UI framework for game}

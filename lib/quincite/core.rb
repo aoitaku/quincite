@@ -1,7 +1,7 @@
 require_relative 'core/symbol'
 require_relative 'core/anonymous_proxy'
 
-module Quindle
+module Quincite
 
   module UI
 
@@ -96,7 +96,7 @@ module Quindle
   end
 end
 
-module Quindle
+module Quincite
 
   module UI
 
@@ -210,7 +210,7 @@ module Quindle
     def self.setup_build(proc) proc.binding.eval <<-EOD end
       class << self.class
         alias __const_missing__ const_missing if defined? const_missing
-        def const_missing(name) Quindle::UI.resolve_const(name) end
+        def const_missing(name) Quincite::UI.resolve_const(name) end
       end
     EOD
 

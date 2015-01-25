@@ -1,4 +1,4 @@
-module Quindle
+module Quincite
 
   module AnonymousProxy
 
