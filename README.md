@@ -17,9 +17,9 @@ gem 'quincite', :git => "https://github.com/aoitaku/quincite.git"
 
 を実行する。
 
-あるいは自分で [Quincite のリリースページ](https://github.com/aoitaku/quincite/releases/tag/v0.0.1) から gem をダウンロードして、
+あるいは自分で [Quincite のリリースページ](https://github.com/aoitaku/quincite/releases) から gem をダウンロードして、
 
-    $ gem install quincite-0.0.1.gem
+    $ gem install quincite.gem
 
 のようにインストールしても OK。
 
