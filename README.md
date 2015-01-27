@@ -1,31 +1,41 @@
-# Ui
+# Quincite
 
-TODO: Write a gem description
+Quincite は Ruby でゲーム向け GUI ライブラリを作るためのフレームワークです。
 
-## Installation
 
-Add this line to your application's Gemfile:
+## インストール
+
+Gemfile に
 
 ```ruby
-gem 'ui'
+gem 'quincite', :git => "https://github.com/aoitaku/quincite.git"
 ```
 
-And then execute:
+って書いてコマンドラインから
 
     $ bundle
 
-Or install it yourself as:
+を実行する。
 
-    $ gem install ui
+あるいは自分で
 
-## Usage
+    $ gem install --source http://github.com/aoitaku/quincite/raw/master/ quincite
 
-TODO: Write usage instructions here
+のようにインストールしても OK。
 
-## Contributing
+今のところ Rubygems には公開していないので github からダウンロードしてお使いください。
 
-1. Fork it ( https://github.com/[my-github-username]/ui/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+
+## 使い方
+
+今書いてます。
+
+
+## コントリビューション
+
+1. フォークします ( https://github.com/aoitaku/quincite/fork )
+2. feature branch を作ります (`git checkout -b my-new-feature`)
+3. 変更をコミットします (`git commit -am 'Add some feature'`)
+4. branch に push します (`git push origin my-new-feature`)
+5. pull request を投げます
+6. 🍣！
