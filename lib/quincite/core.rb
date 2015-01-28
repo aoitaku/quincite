@@ -1,4 +1,3 @@
-require_relative 'core/symbol'
 require_relative 'core/anonymous_proxy'
 
 module Quincite
