@@ -158,7 +158,7 @@ module Quincite
         end
       else
         if block_given?
-          component_helper_call(name, *args) { gateway.instance_eval(&proc) }
+          component_helper_call(name, *args, &proc)
         elsif args.size == 1
           component_attr_set(name, *args)
         else
