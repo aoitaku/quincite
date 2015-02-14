@@ -120,7 +120,11 @@ module Quincite
     anon_proxy :worker, Array do
 
       def transfer(name, *args)
-        last.__send__(name, *args)
+        if block_given?
+          last.__send__(name, *args, &proc)
+        else
+          last.__send__(name, *args)
+        end
       end
 
       def acceptable?(name)
@@ -157,13 +161,8 @@ module Quincite
           build_component(name, *args)
         end
       else
-        if block_given?
-          component_helper_call(name, *args, &proc)
-        elsif args.size == 1
-          component_attr_set(name, *args)
-        else
-          component_helper_call(name, *args)
-        end
+        args = [*args, proc] if block_given?
+        component_style_set(name, *args)
       end
     end
 
@@ -184,18 +183,14 @@ module Quincite
       end
     end
 
-    def self.component_helper_call(name, *args)
-      raise unless worker.acceptable?(name)
-      if block_given?
-        worker.transfer(name, *args, &proc)
+    def self.component_style_set(name, *args)
+      if (worker.acceptable?(:style_include?) and
+          worker.transfer(:style_include?, name))
+        worker.transfer(:style_set, name, *args)
       else
-        worker.transfer(name, *args)
+        raise unless worker.acceptable?(:"#{name}=")
+        worker.transfer(:"#{name}=", *args)
       end
-    end
-
-    def self.component_attr_set(name, *args)
-      raise unless worker.acceptable?(:"#{name}=")
-      worker.transfer(:"#{name}=", *args)
     end
 
     def self.build(container, &proc)
