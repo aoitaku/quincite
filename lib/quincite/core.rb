@@ -187,9 +187,11 @@ module Quincite
       if (worker.acceptable?(:style_include?) and
           worker.transfer(:style_include?, name))
         worker.transfer(:style_set, name, *args)
-      else
-        raise unless worker.acceptable?(:"#{name}=")
+      elsif worker.acceptable?(:"#{name}=")
         worker.transfer(:"#{name}=", *args)
+      else
+        raise unless worker.acceptable?(name)
+        worker.transfer(name, *args)
       end
     end
 
