@@ -86,6 +86,36 @@ module Quincite
       end
       private :row_injection
 
+      def components_overflow?
+        h_margin = padding_top
+        width = 0
+        max_width = @content_width
+        force_break = false
+        -> component do
+          next false if component.position == :absolute
+          h_space = [h_margin, component.margin_left].max + component.width
+          if force_break
+            force_break = component.break_after?
+            width = h_space
+            h_margin = padding_left
+            next true
+          else
+            force_break = component.break_after?
+          end
+          expected_width = width + component.layout_width + padding_left + padding_right
+          if width > 0 and expected_width > max_width
+            width = h_space
+            h_margin = padding_left
+            true
+          else
+            width += h_space
+            h_margin = component.margin_right
+            false
+          end
+        end
+      end
+      private :components_overflow?
+
       def vertical_box_resize
         v_margin = padding_top
         @content_height = components.inject(0) {|height, component|

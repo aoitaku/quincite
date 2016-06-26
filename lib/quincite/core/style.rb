@@ -22,11 +22,13 @@ module Quincite
       def_delegator :@bg, :color=, :bg_color=
       def_delegator :@bg, :image,  :bg_image
       def_delegator :@bg, :image=, :bg_image=
+      def_delegator :@bg, :bg=
 
       def_delegator :@border, :width,  :border_width
       def_delegator :@border, :width=, :border_width=
       def_delegator :@border, :color,  :border_color
       def_delegator :@border, :color=, :border_color=
+      def_delegator :@border, :border=
 
       def initialize
         @position        = :relative
@@ -136,7 +138,7 @@ module Quincite
           case bg
           when Hash
             @image = bg[:image]
-            @color = Color(bg[:color]) || Color[255, 255, 255, 255]
+            @color = UI.Color(bg[:color]) || Color[255, 255, 255, 255]
           else
             @image = nil
             @color = nil
@@ -158,7 +160,7 @@ module Quincite
           case border
           when Hash
             @width = border[:width] || 1
-            @color = Color(border[:color]) || Color[255, 255, 255, 255]
+            @color = UI.Color(border[:color]) || Color[255, 255, 255, 255]
           else
             @width = nil
             @color = nil

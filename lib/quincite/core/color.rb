@@ -23,7 +23,7 @@ module Quincite
       end
 
       def self.from_hex(color)
-        sefl.new(rgb: [
+        self.new(rgb: [
           color >> 16 & 0xff,
           color >> 8 & 0xff,
           color & 0xff
@@ -44,7 +44,7 @@ module Quincite
 
     end
 
-    def Color(color)
+    def self.Color(color)
       case color
       when Array
         Color.from_array(color)
