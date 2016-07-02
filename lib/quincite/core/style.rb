@@ -153,7 +153,7 @@ module Quincite
 
         def initialize
           @width = 0
-          @color = Color[0, 0, 0]
+          @color = Color[0, 0, 0, 0]
         end
 
         def border=(border)
